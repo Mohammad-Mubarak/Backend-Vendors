@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000
-
+const cors = require("cors");
 // routes
 const VendorRoute = require("./routes/Vendors")
 
@@ -9,6 +9,7 @@ const VendorRoute = require("./routes/Vendors")
 require("./config/databaseConnection")
 
 
+app.use(cors());
 
 // middleware for json data
 app.use(express.json())
