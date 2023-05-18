@@ -66,7 +66,6 @@ exports.DeleteVendor = async (req, res) => {
 exports.getVendorById = async (req, res) => {
 	try {
 		const vendorId = req.params.id; // Assuming the ID is provided in the request parameters
-
 		const vendor = await Vendor.findById(vendorId);
 
 		if (!vendor) {
