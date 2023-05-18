@@ -62,6 +62,29 @@ exports.DeleteVendor = async (req, res) => {
 };
 
 
+// <<<<<<<<<<<<<<<<<<<<<<<=========================  GET vendor by ID CONTROLLER     ==========================>>>>>>>>>>>>>>>>>
+exports.getVendorById = async (req, res) => {
+	try {
+		const vendorId = req.params.id; // Assuming the ID is provided in the request parameters
+
+		const vendor = await Vendor.findById(vendorId);
+
+		if (!vendor) {
+			return res.status(404).json({ error: "Vendor not found" });
+		}
+
+		res.json({
+			message: "Vendor retrieved successfully",
+			vendor: vendor,
+		});
+		
+	} catch (error) {
+		console.log(error);
+		res.status(500).json({ error: "An error occurred" });
+	}
+};
+
+
 // <<<<<<<<<<<<<<<<<<<<<<<=========================  UPDATE CONTROLLER     ==========================>>>>>>>>>>>>>>>>>
 exports.updateVendor = async (req, res) => {
 	try {

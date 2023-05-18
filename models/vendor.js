@@ -20,7 +20,7 @@ const vendorSchema = new mongoose.Schema({
   },
   addressLine1: {
     type: String,
-    required: true
+    required: false
   },
   addressLine2: {
     type: String,
@@ -28,15 +28,15 @@ const vendorSchema = new mongoose.Schema({
   },
   city: {
     type: String,
-    required: true
+    required: false
   },
   country: {
     type: String,
-    required: true
+    required: false
   },
   zipCode: {
     type: String,
-    required: true
+    required: false
   }
 });
 
