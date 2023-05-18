@@ -11,7 +11,6 @@ const router = express.Router()
 } = require("../controllers/VendorController")
 
 
-
 // <<<<<<<<<<<<<<<<<<<<<<<=========================  Create Vendor Route    ==========================>>>>>>>>>>>>>>>>>
 router.route("/vendor").post(createVendor)
 

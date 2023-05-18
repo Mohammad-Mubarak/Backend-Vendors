@@ -1,9 +1,14 @@
 const mongoose = require('mongoose');
+const moment = require('moment');
 
 const vendorSchema = new mongoose.Schema({
   vendorName: {
     type: String,
     required: true
+  },
+  timestamp: {
+    type: String,
+    required: true,
   },
   bankAccountNo: {
     type: String,
