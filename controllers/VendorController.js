@@ -6,21 +6,25 @@ const moment =require("moment")
 // <<<<<<<<<<<<<<<<<<<<<<<=========================  GET vendor With Pagination ALL CONTROLLER     ==========================>>>>>>>>>>>>>>>>>
 exports.getVendors = async (req, res) => {
 	try {
-        const page = parseInt(req.query.page) || 1; // Current page number
-        const limit = parseInt(req.query.limit) || 10; // Number of documents per page
+        // const page = parseInt(req.query.page) || 1; // Current page number
+        // const limit = parseInt(req.query.limit) || 10; // Number of documents per page
     
-        // Calculate the skip value to determine the starting index of documents to fetch
-        const skip = (page - 1) * limit;
+        // // Calculate the skip value to determine the starting index of documents to fetch
+        // const skip = (page - 1) * limit;
 
-		
-    
+
+		const count = await Vendor.countDocuments();
+
         // Query the database to retrieve the vendors with pagination
-        const vendors = await Vendor.find().sort({ timestamp: -1 }).skip(skip).limit(limit);
-	
+        // const vendors = await Vendor.find().sort({ timestamp: -1 }).skip(skip).limit(limit);
 
+        const vendors = await Vendor.find().sort({ timestamp: -1 })
+
+	
 		res.json({
 			message: "All Vendors",
 			vendors: vendors,
+			length:count
 		});
 	} catch (error) {
 		console.log("error");
