@@ -11,7 +11,7 @@ const vendorSchema = new mongoose.Schema({
     required: true,
   },
   bankAccountNo: {
-    type: String,
+    type: Number,
     required: true
   },
   bankName: {
@@ -35,7 +35,7 @@ const vendorSchema = new mongoose.Schema({
     required: false
   },
   zipCode: {
-    type: String,
+    type: Number,
     required: false
   }
 });
